@@ -20,9 +20,9 @@ def main():
     raw_input = load_input(args.day_number, args.test)
     input = day.parse_input(raw_input)
     
-    if day1_result := day.part1(input):
+    if (day1_result := day.part1(input)) is not None:
         print('PART 1:', day1_result)
-    if day2_result := day.part2(input):
+    if (day2_result := day.part2(input)) is not None:
         print('PART 2:', day2_result)
 
 
