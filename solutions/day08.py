@@ -1,7 +1,7 @@
 from collections import defaultdict
 from itertools import combinations
 
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     points = []
     for line in raw_input.split('\n'):
         if line == '': continue
@@ -14,14 +14,16 @@ def parse_input(raw_input: str):
         distances.append((d, (p1, p2)))
     distances.sort()
 
-    return points, distances
+    num_connections = 10 if is_test_input else 1000
+
+    return num_connections, points, distances
 
 
 def part1(input):
-    points, distances = input
+    num_connections, points, distances = input
     
     circuits = {p: c for c, p in enumerate(points)}
-    for _, (p1, p2) in distances[:1000]:
+    for _, (p1, p2) in distances[:num_connections]:
         c1 = circuits[p1]
         c2 = circuits[p2]
         if c1 == c2: continue
@@ -41,7 +43,7 @@ def part1(input):
 
 
 def part2(input):
-    points, distances = input
+    _, points, distances = input
 
     circuits = {p: c for c, p in enumerate(points)}
     circuit_count = len(points)

@@ -1,4 +1,4 @@
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     input = []
     for range in raw_input.strip().split(','):
         lower, upper = range.split('-')

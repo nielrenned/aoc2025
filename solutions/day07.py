@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     lines = list(filter(lambda s: s != '', raw_input.split('\n')))
 
     start = None

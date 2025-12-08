@@ -18,7 +18,7 @@ def main():
 
     day = importlib.import_module(f'solutions.day{args.day_number:02}')
     raw_input = load_input(args.day_number, args.test)
-    input = day.parse_input(raw_input)
+    input = day.parse_input(raw_input, args.test)
     
     if (day1_result := day.part1(input)) is not None:
         print('PART 1:', day1_result)

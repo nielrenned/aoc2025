@@ -1,6 +1,6 @@
 from itertools import product
 
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     lines = raw_input.split('\n')
     blank_line = lines.index('')
 

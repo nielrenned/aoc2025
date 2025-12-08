@@ -3,7 +3,7 @@ DIRECTIONS = [
     (1, 1), (-1, 1), (1, -1), (-1, -1), 
 ]
 
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     input = set()
     for y, line in enumerate(raw_input.split('\n')):
         if line == '': continue

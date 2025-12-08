@@ -1,7 +1,7 @@
 import sys
 import os
 
-template = """def parse_input(raw_input: str):
+template = """def parse_input(raw_input: str, is_test_input: bool):
     input = []
     for line in raw_input.split('\\n'):
         if line == '': continue

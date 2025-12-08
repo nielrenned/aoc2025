@@ -6,7 +6,7 @@ product = lambda l: reduce(__mul__, l, 1)
 concat = lambda l: reduce(__add__, l, '')
 
 
-def parse_input(raw_input: str):
+def parse_input(raw_input: str, is_test_input: bool):
     lines = list(filter(lambda s: s != '', raw_input.split('\n')))
     op_line = lines[-1]
 
