@@ -1,15 +1,6 @@
 import importlib
 import argparse
 
-
-def load_input(day, use_test_input):
-    path = f'inputs/actual/day{day:02}.txt'
-    if use_test_input:
-        path = f'inputs/test/day{day:02}.txt'
-    with open(path) as f:
-        return f.read()
-
-
 def main():
     parser = argparse.ArgumentParser(prog='python solve.py', description='Advent of Code 2025 solutions')
     parser.add_argument('-d', '--day', type=int, required=False)
@@ -34,6 +25,14 @@ def main():
         if (day2_result := day.part2(input)) is not None:
             print('PART 2:', day2_result)
         print()
+
+
+def load_input(day, use_test_input):
+    path = f'inputs/actual/day{day:02}.txt'
+    if use_test_input:
+        path = f'inputs/test/day{day:02}.txt'
+    with open(path) as f:
+        return f.read()
 
 
 if __name__ == '__main__': main()

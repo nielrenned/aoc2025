@@ -14,6 +14,14 @@ def parse_input(raw_input: str, is_test_input: bool):
     return input
 
 
+def part1(input):
+    return sum(get_min_pushes_lights(lights, buttons) for lights, buttons, _ in input)
+
+
+def part2(input):
+    return sum(get_min_pushes_joltage(joltage, buttons) for i, (_, buttons, joltage) in enumerate(input))
+
+
 def get_min_pushes_lights(lights_goal, buttons):
     # We can BFS until we find a solution
     q = Queue()
@@ -27,10 +35,6 @@ def get_min_pushes_lights(lights_goal, buttons):
             if lights == lights_goal:
                 return depth+1
             q.put((depth+1, lights))
-
-
-def part1(input):
-    return sum(get_min_pushes_lights(lights, buttons) for lights, buttons, _ in input)
 
 
 def get_push_bounds(inequalities):
@@ -89,7 +93,3 @@ def get_min_pushes_joltage(goal, buttons):
             # We didn't break, so this_sum is valid
             min_sum = min(min_sum, this_sum)
     return min_sum
-
-
-def part2(input):
-    return sum(get_min_pushes_joltage(joltage, buttons) for i, (_, buttons, joltage) in enumerate(input))

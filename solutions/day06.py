@@ -1,7 +1,6 @@
 from functools import reduce
 from operator import __add__, __mul__
 
-
 product = lambda l: reduce(__mul__, l, 1)
 concat = lambda l: reduce(__add__, l, '')
 

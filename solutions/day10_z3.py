@@ -13,6 +13,14 @@ def parse_input(raw_input: str, is_test_input: bool):
     return input
 
 
+def part1(input):
+    return sum(get_min_pushes_lights(lights, buttons) for lights, buttons, _ in input)
+
+
+def part2(input):
+    return sum(get_min_pushes_joltage(joltages, buttons) for i, (_, buttons, joltages) in enumerate(input))
+
+
 def get_min_pushes_lights(lights_goal, buttons):
     # We can BFS until we find a solution
     q = Queue()
@@ -28,10 +36,6 @@ def get_min_pushes_lights(lights_goal, buttons):
             q.put((depth+1, lights))
 
 
-def part1(input):
-    return sum(get_min_pushes_lights(lights, buttons) for lights, buttons, _ in input)
-
-
 def get_min_pushes_joltage(joltages, buttons):
     solver = Optimize()
     presses = [Int(f'p{i}') for i in range(len(buttons))]
@@ -45,6 +49,3 @@ def get_min_pushes_joltage(joltages, buttons):
     solver.check()
     result = solver.model()
     return sum(result[p].py_value() for p in presses)
-
-def part2(input):
-    return sum(get_min_pushes_joltage(joltages, buttons) for i, (_, buttons, joltages) in enumerate(input))

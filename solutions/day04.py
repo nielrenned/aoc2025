@@ -11,6 +11,7 @@ def parse_input(raw_input: str, is_test_input: bool):
             if c == '@': input.add((x, y))
     return input
 
+
 def part1(input):
     return sum(
         1 for x, y in input
