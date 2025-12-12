@@ -21,7 +21,7 @@ def part2(input):
     while True:
         for (a, b), (c, d) in product(ranges, ranges):
             if a == c and b == d: continue
-            if a <= c <= b or c <= a <= d:
+            if not(b < c or d < a):
                 ranges -= {(a, b), (c, d)}
                 ranges.add((min(a, c), max(b, d)))
                 break
